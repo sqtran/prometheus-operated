@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    service_monitor: app-monitors
+  name: actuator-sm1
+  namespace: prometheus-operated
+spec:
+  endpoints:
+  - interval: 30s
+    path: /actuator/prometheus
+    port: web
+  namespaceSelector:
+    any: true
+  selector:
+    matchLabels:
+      prometheus/scrape: actuator

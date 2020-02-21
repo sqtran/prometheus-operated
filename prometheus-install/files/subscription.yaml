@@ -1,0 +1,11 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: Subscription
+metadata:
+  name: promethus-operated-subscription
+  namespace: prometheus-operated
+spec:
+  channel: beta
+  name: prometheus
+  sourceNamespace: openshift-marketplace
+  installPlanApproval: Automatic
+  source: community-operators

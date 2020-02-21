@@ -1,0 +1,6 @@
+---
+- name: "Configure prometherus-operated"
+  hosts: localhost
+  roles:
+    - role: prometheus-install
+      tags: apps

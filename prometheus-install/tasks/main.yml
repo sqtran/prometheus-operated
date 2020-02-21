@@ -1,0 +1,19 @@
+---
+# tasks file for prometheus-install
+- name: Create prometheus-operated namespace
+  k8s:
+    name: prometheus-operated
+    api_version: v1
+    kind: Namespace
+    state: present
+
+- name: Create objects by reading manifests
+  k8s:
+    state: present
+    src: "{{item}}" 
+  with_items:
+    - operatorgroup.yaml
+    - subscription.yaml
+    - prometheus.yaml
+    - servicemonitor
+    - clusterrolebinding.yaml
