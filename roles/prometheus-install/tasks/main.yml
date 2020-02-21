@@ -10,10 +10,10 @@
 - name: Create objects by reading manifests
   k8s:
     state: present
-    src: "{{item}}" 
+    definition: "{{ lookup('file', item) }}" 
   with_items:
     - operatorgroup.yaml
     - subscription.yaml
     - prometheus.yaml
-    - servicemonitor
+    - servicemonitor.yaml
     - clusterrolebinding.yaml
