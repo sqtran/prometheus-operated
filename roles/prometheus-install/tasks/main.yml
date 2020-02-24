@@ -5,6 +5,9 @@
     name: prometheus-operated
     api_version: v1
     kind: Namespace
+    metadata:
+      labels:
+        name: prometheus-operated
     state: present
 
 - name: Create objects by reading manifests
